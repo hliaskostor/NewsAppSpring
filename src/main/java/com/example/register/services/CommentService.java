@@ -28,10 +28,25 @@ public class CommentService {
         return commentRepository.findByArticleId(articleId);
     }
 
-
     public Comment addComment(String username, Long articleId, String content) {
-        User user = userRepository.findById(Integer.valueOf(username)).orElseThrow(() -> new RuntimeException("User not found"));
-        Article article = articleRepository.findById(articleId).orElseThrow(() -> new RuntimeException("Article not found"));
+
+        if (username == null || username.trim().isEmpty()) {
+            throw new RuntimeException("Username cannot be empty");
+        }
+
+
+        if (content == null || content.trim().isEmpty()) {
+            throw new RuntimeException("Content cannot be empty");
+        }
+
+
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+
+        Article article = articleRepository.findById(articleId)
+                .orElseThrow(() -> new RuntimeException("Article not found"));
+
 
         Comment comment = new Comment(user, article, content);
         return commentRepository.save(comment);
