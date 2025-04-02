@@ -10,6 +10,6 @@ public class UserApiController {
 
     @GetMapping("/test")
     public String testEndpoint() {
-        return "test";
+        return "new";
     }
 }
