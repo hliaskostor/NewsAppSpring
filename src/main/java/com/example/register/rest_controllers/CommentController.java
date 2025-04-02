@@ -20,7 +20,7 @@ public class CommentController {
     }
 
 
-    @PostMapping("/add")
+    @PostMapping("/user/add")
     public Comment addComment(@RequestParam String username, @RequestParam Long articleId, @RequestParam String content) {
         return commentService.addComment(username, articleId, content);
     }
