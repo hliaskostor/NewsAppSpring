@@ -53,7 +53,7 @@ public class RegisterApiController {
             return new ResponseEntity<>("Registration failed", HttpStatus.BAD_REQUEST);
         }
 
-        String senderName = "Η Ομάδα Υποστήριξης | Team Support";
+    
 
         String subject = "Καλώς ήρθατε στην εφαρμογή! | Welcome to the application!";
         String body = String.format(
@@ -61,15 +61,15 @@ public class RegisterApiController {
                         "Αν θέλεις να κάνεις αλλαγές ώστε να εμφανίζονται οι κατηγορίες που επιθυμείς, μπορείς να κάνεις επεξεργασία μέσα από την εφαρμογή, " +
                         "αφού συνδεθείς πρώτα στον λογαριασμό σου."+
                         "\nΚαλή περιήγηση!"+
-                        "\nΜε εκτίμηση, %s.\n" +
+                        "\nΜε εκτίμηση, Η ομάδα υποστήριξης.\n" +
                         "-------------------------------------- " +
                         "Hello %s %s, Welcome to our application! Your username is: %s. " +
                         "If you want to make changes so that only the categories you prefer are displayed, " +
                         "you can edit them within the application after logging into your account."+
                         "\nEnjoy your experience!"+
-                        "\nBest regards, %s.",
-                request.getFirstName(), request.getLastName(), request.getUsername(),  senderName,
-                request.getFirstName(), request.getLastName(), request.getUsername(), senderName
+                        "\nBest regards, The team support.",
+                request.getFirstName(), request.getLastName(), request.getUsername(),  
+                request.getFirstName(), request.getLastName(), request.getUsername()
         );
 
 
