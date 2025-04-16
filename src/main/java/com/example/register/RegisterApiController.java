@@ -76,6 +76,6 @@ public class RegisterApiController {
 
         emailService.sendEmail(request.getEmail(), subject, body);
 
-        return new ResponseEntity<>("Registration completed successfully", HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
