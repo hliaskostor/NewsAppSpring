@@ -57,25 +57,27 @@ public class RegisterApiController {
         String subject = "Καλώς ήρθατε στην εφαρμογή! | Welcome to the application!";
         String body = String.format(
                 "<html><body>" +
-                        "<p>Γεια σου %s %s,<br>" +
-                        "Καλώς ήρθες στην εφαρμογή μας! Το όνομα χρήστη σου είναι: <strong>%s</strong>.<br>" +
-                        "Αν θέλεις να κάνεις αλλαγές ώστε να εμφανίζονται οι κατηγορίες που επιθυμείς, " +
-                        "μπορείς να κάνεις επεξεργασία μέσα από την εφαρμογή, αφού συνδεθείς πρώτα στον λογαριασμό σου.<br>" +
-                        "Καλή περιήγηση!<br>" +
-                        "Με εκτίμηση,<br>Η ομάδα υποστήριξης.</p>" +
+                        "<p><strong>Γεια σου %s %s,</strong></p>" +
+                        "<p>Καλώς ήρθες στην εφαρμογή μας! Το όνομα χρήστη σου είναι: <strong>%s</strong>.</p>" +
+                        "<p>Αν θέλεις να κάνεις αλλαγές ώστε να εμφανίζονται οι κατηγορίες που επιθυμείς, " +
+                        "μπορείς να κάνεις επεξεργασία μέσα από την εφαρμογή, αφού συνδεθείς πρώτα στον λογαριασμό σου.</p>" +
+                        "<p>Καλή περιήγηση!</p>" +
+                        "<p>Με εκτίμηση,<br>Η ομάδα υποστήριξης.</p>" +
 
                         "<hr>" +
 
-                        "<p>Hello %s %s,<br>" +
-                        "Welcome to our application! Your username is: <strong>%s</strong>.<br>" +
-                        "If you want to make changes so that only the categories you prefer are displayed, " +
-                        "you can edit them within the application after logging into your account.<br>" +
-                        "Enjoy your experience!<br>" +
-                        "Best regards,<br>The support team.</p>" +
+                        "<p><strong>Hello %s %s,</strong></p>" +
+                        "<p>Welcome to our application! Your username is: <strong>%s</strong>.</p>" +
+                        "<p>If you want to make changes so that only the categories you prefer are displayed, " +
+                        "you can edit them within the application after logging into your account.</p>" +
+                        "<p>Enjoy your experience!</p>" +
+                        "<p>Best regards,<br>The support team.</p>" +
                         "</body></html>",
                 request.getFirstName(), request.getLastName(), request.getUsername(),
                 request.getFirstName(), request.getLastName(), request.getUsername()
         );
+
+
 
 
 
