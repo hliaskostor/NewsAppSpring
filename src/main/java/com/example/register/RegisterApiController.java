@@ -56,22 +56,25 @@ public class RegisterApiController {
 
         String subject = "Καλώς ήρθατε στην εφαρμογή! | Welcome to the application!";
         String body = String.format(
-                "Γεια σου %s %s,\n" +
-                        "Καλώς ήρθες στην εφαρμογή μας! Το όνομα χρήστη σου είναι: %s.\n" +
+                "<p>Γεια σου %s %s,<br>" +
+                        "Καλώς ήρθες στην εφαρμογή μας! Το όνομα χρήστη σου είναι: <b>%s</b>.<br>" +
                         "Αν θέλεις να κάνεις αλλαγές ώστε να εμφανίζονται οι κατηγορίες που επιθυμείς, " +
-                        "μπορείς να κάνεις επεξεργασία μέσα από την εφαρμογή, αφού συνδεθείς πρώτα στον λογαριασμό σου.\n" +
-                        "Καλή περιήγηση!\n" +
-                        "Με εκτίμηση,\nΗ ομάδα υποστήριξης.\n\n" +
+                        "μπορείς να κάνεις επεξεργασία μέσα από την εφαρμογή, αφού συνδεθείς πρώτα στον λογαριασμό σου.<br>" +
+                        "Καλή περιήγηση!<br>" +
+                        "Με εκτίμηση,<br>" +
+                        "Η ομάδα υποστήριξης.</p>" +
 
-                        "Hello %s %s,\n" +
-                        "Welcome to our application! Your username is: %s.\n" +
+                        "<p>Hello %s %s,<br>" +
+                        "Welcome to our application! Your username is: <b>%s</b>.<br>" +
                         "If you want to make changes so that only the categories you prefer are displayed, " +
-                        "you can edit them within the application after logging into your account.\n" +
-                        "Enjoy your experience!\n" +
-                        "Best regards,\nThe support team.",
+                        "you can edit them within the application after logging into your account.<br>" +
+                        "Enjoy your experience!<br>" +
+                        "Best regards,<br>" +
+                        "The support team.</p>",
                 request.getFirstName(), request.getLastName(), request.getUsername(),
                 request.getFirstName(), request.getLastName(), request.getUsername()
         );
+
 
 
 
