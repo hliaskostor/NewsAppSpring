@@ -53,29 +53,32 @@ public class RegisterApiController {
             return new ResponseEntity<>("Registration failed", HttpStatus.BAD_REQUEST);
         }
 
-    
 
         String subject = "Καλώς ήρθατε στην εφαρμογή! | Welcome to the application!";
         String body = String.format(
-                "Γεια σου %s %s, Καλώς ήρθες στην εφαρμογή μας! Το όνομα χρήστη σου είναι: %s. " +
-                        "Αν θέλεις να κάνεις αλλαγές ώστε να εμφανίζονται οι κατηγορίες που επιθυμείς, μπορείς να κάνεις επεξεργασία μέσα από την εφαρμογή, " +
-                        "αφού συνδεθείς πρώτα στον λογαριασμό σου."+
-                        "\nΚαλή περιήγηση!"+
-                        "\nΜε εκτίμηση, Η ομάδα υποστήριξης.\n" +
-                        "-------------------------------------- " +
-                        "Hello %s %s, Welcome to our application! Your username is: %s. " +
+                "Γεια σου %s %s,\n" +
+                        "Καλώς ήρθες στην εφαρμογή μας! Το όνομα χρήστη σου είναι: %s.\n" +
+                        "Αν θέλεις να κάνεις αλλαγές ώστε να εμφανίζονται οι κατηγορίες που επιθυμείς, " +
+                        "μπορείς να κάνεις επεξεργασία μέσα από την εφαρμογή, αφού συνδεθείς πρώτα στον λογαριασμό σου.\n" +
+                        "Καλή περιήγηση!\n" +
+                        "Με εκτίμηση,\nΗ ομάδα υποστήριξης.\n\n" +
+
+                        "Hello %s %s,\n" +
+                        "Welcome to our application! Your username is: %s.\n" +
                         "If you want to make changes so that only the categories you prefer are displayed, " +
-                        "you can edit them within the application after logging into your account."+
-                        "\nEnjoy your experience!"+
-                        "\nBest regards, The team support.",
-                request.getFirstName(), request.getLastName(), request.getUsername(),  
+                        "you can edit them within the application after logging into your account.\n" +
+                        "Enjoy your experience!\n" +
+                        "Best regards,\nThe support team.",
+                request.getFirstName(), request.getLastName(), request.getUsername(),
                 request.getFirstName(), request.getLastName(), request.getUsername()
         );
 
 
 
-        emailService.sendEmail(request.getEmail(), subject, body);
 
+
+        emailService.sendEmail(request.getEmail(), subject, body);
         return new ResponseEntity<>(HttpStatus.OK);
+
     }
 }
