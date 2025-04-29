@@ -21,6 +21,7 @@ public class EmailService {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
             helper.setTo(toEmail);
+        helper.setText(body, true);
             helper.setSubject("Καλώς ήρθατε στην εφαρμογή! | Welcome to the application!");
             helper.setText(body, true);
             javaMailSender.send(message);
