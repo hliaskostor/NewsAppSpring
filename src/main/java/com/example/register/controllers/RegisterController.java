@@ -1,5 +1,6 @@
-package com.example.register;
+package com.example.register.controllers;
 
+import com.example.register.UserRegister;
 import com.example.register.services.EmailService;
 import com.example.register.services.UserService;
 import jakarta.mail.MessagingException;
@@ -13,12 +14,12 @@ import java.util.StringJoiner;
 
 @RestController
 @RequestMapping("/api/user")
-public class RegisterApiController {
+public class RegisterController {
 
     UserService userService;
     EmailService emailService;
 
-    public RegisterApiController(UserService userService, EmailService emailService) {
+    public RegisterController(UserService userService, EmailService emailService) {
         this.userService = userService;
         this.emailService = emailService;
     }

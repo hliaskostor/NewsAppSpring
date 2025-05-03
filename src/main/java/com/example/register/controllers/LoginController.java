@@ -19,7 +19,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
-public class LoginApiController {
+public class LoginController {
 
     @Autowired
     UserService userService;
