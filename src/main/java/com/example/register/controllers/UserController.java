@@ -24,15 +24,15 @@ public class UserController {
     @RestController
     @RequestMapping("/api/user")
     public static class RegisterApiController {
-
+    
         UserService userService;
         EmailService emailService;
-
+    
         public RegisterApiController(UserService userService, EmailService emailService) {
             this.userService = userService;
             this.emailService = emailService;
         }
-
+    
         @PostMapping("/register")
         public ResponseEntity<?> registerNewUser(@RequestBody UserRegister request) throws MessagingException {
             if (request.getFirstName().isEmpty() || request.getLastName().isEmpty() ||
@@ -40,30 +40,30 @@ public class UserController {
                     request.getUsername().isEmpty()) {
                 return new ResponseEntity<>("Please fill all the fields", HttpStatus.BAD_REQUEST);
             }
-
+    
             List<String> checkList = request.getCheckPref();
             if (checkList == null || checkList.isEmpty()) {
                 checkList = List.of();
             }
-
+    
             StringJoiner joiner = new StringJoiner(",");
             for (String pref : checkList) {
                 joiner.add(pref);
             }
             String checkPref = joiner.toString();
-
+    
             String hashedPass = BCrypt.hashpw(request.getPassword(), BCrypt.gensalt());
-
+    
             int result = userService.signup(
                     request.getUsername(), request.getFirstName(),
                     request.getLastName(), request.getEmail(), hashedPass, checkPref
             );
-
+    
             if (result != 1) {
                 return new ResponseEntity<>("Registration failed", HttpStatus.BAD_REQUEST);
             }
-
-
+    
+    
             String subject = "Καλώς ήρθατε στην εφαρμογή! | Welcome to the application!";
             String body = String.format(
                     "<html><body>" +
@@ -73,9 +73,9 @@ public class UserController {
                             "μπορείς να κάνεις επεξεργασία μέσα από την εφαρμογή, αφού συνδεθείς πρώτα στον λογαριασμό σου.</p>" +
                             "<p>Καλή περιήγηση!</p>" +
                             "<p>Με εκτίμηση,<br>Η ομάδα υποστήριξης.</p>" +
-
+    
                             "<hr>" +
-
+    
                             "<p><strong>Hello %s %s,</strong></p>" +
                             "<p>Welcome to our application! Your username is: <strong>%s</strong>.</p>" +
                             "<p>If you want to make changes so that only the categories you prefer are displayed, " +
@@ -86,18 +86,18 @@ public class UserController {
                     request.getFirstName(), request.getLastName(), request.getUsername(),
                     request.getFirstName(), request.getLastName(), request.getUsername()
             );
-
-
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
             emailService.sendEmail(request.getEmail(), subject, body);
             return new ResponseEntity<>(HttpStatus.OK);
-
+    
         }
     }
 }
