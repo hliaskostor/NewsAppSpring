@@ -46,7 +46,7 @@ public class LoginApiController {
                 ? user.getprefList()
                 : List.of();
 
-        response.put("prefCheck", prefs);
+        response.put("check_pref", prefs);
 
         return ResponseEntity.ok(response);
     }
