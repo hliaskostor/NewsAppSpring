@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class LogoutController {
+public class LogoutApiController {
 
     @PostMapping("/user/logout")
     public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {

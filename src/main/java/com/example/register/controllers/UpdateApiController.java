@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class UpdateController {
+public class UpdateApiController {
 
     @Autowired
     UserService userService;
