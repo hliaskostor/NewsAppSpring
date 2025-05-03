@@ -18,11 +18,11 @@ public class UpdateApiController {
 
     @PostMapping("/user/updatePref")
     public ResponseEntity<String> updatePref(@RequestBody changePref changePref) {
-        if (changePref == null || changePref.getUsername() == null || changePref.getCheckPrefList() == null) {
+        if (changePref == null || changePref.getUsername() == null || changePref.getPrefCheck() == null) {
             return ResponseEntity.badRequest().body("{\"error\": \"Invalid request data\"}");
         }
 
-        if (userService.changePref(changePref.getUsername(), changePref.getCheckPrefList()) != null) {
+        if (userService.changePref(changePref.getUsername(), changePref.getPrefCheck()) != null) {
             return ResponseEntity.ok("{\"message\": \"Preferences updated successfully\"}");
         } else {
             return ResponseEntity.status(404).body("{\"error\": \"User not found or preferences update failed\"}");

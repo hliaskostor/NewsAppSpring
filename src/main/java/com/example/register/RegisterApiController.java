@@ -31,22 +31,22 @@ public class RegisterApiController {
             return new ResponseEntity<>("Please fill all the fields", HttpStatus.BAD_REQUEST);
         }
 
-        List<String> checkPrefList = request.getCheckPref();
-        if (checkPrefList == null || checkPrefList.isEmpty()) {
-            checkPrefList = List.of();
+        List<String> checkList = request.getCheckPref();
+        if (checkList == null || checkList.isEmpty()) {
+            checkList = List.of();
         }
 
         StringJoiner joiner = new StringJoiner(",");
-        for (String pref : checkPrefList) {
+        for (String pref : checkList) {
             joiner.add(pref);
         }
-        String checkPrefString = joiner.toString();
+        String checkPref = joiner.toString();
 
         String hashedPass = BCrypt.hashpw(request.getPassword(), BCrypt.gensalt());
 
         int result = userService.signup(
                 request.getUsername(), request.getFirstName(),
-                request.getLastName(), request.getEmail(), hashedPass, checkPrefString
+                request.getLastName(), request.getEmail(), hashedPass, checkPref
         );
 
         if (result != 1) {

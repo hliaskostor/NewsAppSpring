@@ -5,7 +5,7 @@ import java.util.List;
 public class changePref {
 
     String username;
-    List<String> checkPrefList;
+    List<String> prefCheck;
 
 
     public String getUsername() {
@@ -16,11 +16,11 @@ public class changePref {
         this.username = username;
     }
 
-    public List<String> getCheckPrefList() {
-        return checkPrefList;
+    public List<String> getPrefCheck() {
+        return prefCheck;
     }
 
-    public void setCheckPrefList(List<String> checkPrefList) {
-        this.checkPrefList = checkPrefList;
+    public void setPrefCheck(List<String> prefCheck) {
+        this.prefCheck = prefCheck;
     }
 }

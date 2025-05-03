@@ -44,7 +44,7 @@ public class User {
         this.checkPref = checkPref;
     }
 
-    public List<String> getCheckPrefAsList() {
+    public List<String> getprefList() {
         return Arrays.asList(this.checkPref.split(","));
     }
 
