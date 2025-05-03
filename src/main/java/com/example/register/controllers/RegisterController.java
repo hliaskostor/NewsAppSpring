@@ -1,5 +1,6 @@
-package com.example.register;
+package com.example.register.controllers;
 
+import com.example.register.UserRegister;
 import com.example.register.services.EmailService;
 import com.example.register.services.UserService;
 import jakarta.mail.MessagingException;
@@ -13,12 +14,12 @@ import java.util.StringJoiner;
 
 @RestController
 @RequestMapping("/api/user")
-public class RegisterApiController {
+public class RegisterController {
 
     UserService userService;
     EmailService emailService;
 
-    public RegisterApiController(UserService userService, EmailService emailService) {
+    public RegisterController(UserService userService, EmailService emailService) {
         this.userService = userService;
         this.emailService = emailService;
     }
@@ -31,13 +32,13 @@ public class RegisterApiController {
             return new ResponseEntity<>("Please fill all the fields", HttpStatus.BAD_REQUEST);
         }
 
-        List<String> checkList = request.getCheckPref();
-        if (checkList == null || checkList.isEmpty()) {
-            checkList = List.of();
+        List<String> checkPrefList = request.getCheckPref();
+        if (checkPrefList == null || checkPrefList.isEmpty()) {
+            checkPrefList = List.of();
         }
 
         StringJoiner joiner = new StringJoiner(",");
-        for (String pref : checkList) {
+        for (String pref : checkPrefList) {
             joiner.add(pref);
         }
         String checkPref = joiner.toString();

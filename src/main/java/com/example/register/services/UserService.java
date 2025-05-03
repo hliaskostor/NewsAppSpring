@@ -1,7 +1,7 @@
 package com.example.register.services;
 
 import com.example.register.models.User;
-import com.example.register.repository.UserRepository;
+import com.example.register.repository.IUserNew;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private IUserNew userRepository;
 
     public Optional<User> getUserDetailsByUsername(String username) {
         return userRepository.findByUsername(username);

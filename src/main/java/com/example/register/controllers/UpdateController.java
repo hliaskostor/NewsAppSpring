@@ -1,4 +1,4 @@
-package com.example.register.rest_controllers;
+package com.example.register.controllers;
 
 import com.example.register.models.changePref;
 import com.example.register.services.UserService;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class UpdateApiController {
+public class UpdateController {
 
     @Autowired
     UserService userService;

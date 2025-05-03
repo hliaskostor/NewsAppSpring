@@ -1,4 +1,4 @@
-package com.example.register.rest_controllers;
+package com.example.register.controllers;
 
 import com.example.register.models.Login;
 import com.example.register.models.User;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
-public class LoginApiController {
+public class LoginController {
 
     @Autowired
     UserService userService;
