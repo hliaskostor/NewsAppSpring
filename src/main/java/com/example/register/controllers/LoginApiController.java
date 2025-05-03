@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -35,6 +38,16 @@ public class LoginApiController {
             return new ResponseEntity<>("Incorrect username or password", HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        Map<String, Object> response = new HashMap<>();
+        response.put("username", user.getUsername());
+        response.put("email", user.getEmail());
+
+        List<String> prefs = (user.getCheckPref() != null && !user.getCheckPref().isEmpty())
+                ? user.getprefList()
+                : List.of();
+
+        response.put("check_pref", prefs);
+
+        return ResponseEntity.ok(response);
     }
 }

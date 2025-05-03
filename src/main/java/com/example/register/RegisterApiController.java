@@ -1,6 +1,5 @@
-package com.example.register.controllers;
+package com.example.register;
 
-import com.example.register.UserRegister;
 import com.example.register.services.EmailService;
 import com.example.register.services.UserService;
 import jakarta.mail.MessagingException;

@@ -10,7 +10,6 @@ public class UserRegister {
    String password;
    List<String> checkPref;
    String city;
-//nai
 
     public String getUsername() {
         return username;
