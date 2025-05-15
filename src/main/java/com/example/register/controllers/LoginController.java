@@ -29,13 +29,17 @@ public class LoginController {
         Optional<User> userOptional = userService.getUserDetailsByUsername(login.getUsername());
 
         if (userOptional.isEmpty()) {
-            return new ResponseEntity<>("Username does not exist", HttpStatus.NOT_FOUND);
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("error", "wrong_username");
+            return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
         }
 
         User user = userOptional.get();
 
         if (!BCrypt.checkpw(login.getPassword(), user.getPassword())) {
-            return new ResponseEntity<>("Incorrect username or password", HttpStatus.BAD_REQUEST);
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("error", "wrong_password");
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
         }
 
         Map<String, Object> response = new HashMap<>();
@@ -50,4 +54,5 @@ public class LoginController {
 
         return ResponseEntity.ok(response);
     }
+
 }

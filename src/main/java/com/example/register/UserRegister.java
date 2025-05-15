@@ -9,7 +9,7 @@ public class UserRegister {
     String email;
    String password;
    List<String> checkPref;
-   String city;
+
 
     public String getUsername() {
         return username;
@@ -59,11 +59,5 @@ public class UserRegister {
         this.checkPref = checkPref;
     }
 
-    public String getCity() {
-        return city;
-    }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
 }
