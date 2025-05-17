@@ -25,7 +25,7 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerNewUser(@RequestBody UserRegister request) throws MessagingException {
+    public ResponseEntity<?> newUser(@RequestBody UserRegister request) throws MessagingException {
         if (request.getFirstName().isEmpty() || request.getLastName().isEmpty() ||
                 request.getEmail().isEmpty() || request.getPassword().isEmpty() ||
                 request.getUsername().isEmpty()) {

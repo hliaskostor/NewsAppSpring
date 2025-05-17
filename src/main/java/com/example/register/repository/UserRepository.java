@@ -20,7 +20,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     @Modifying
     @Query(value = "INSERT INTO users (username, first_name, last_name, email, password, check_pref) " +
             "VALUES (:username, :first_name, :last_name, :email, :password, :check_pref)", nativeQuery = true)
-    int registerNewUser(@Param("username") String username,
+    int newUser(@Param("username") String username,
                         @Param("first_name") String first_name,
                         @Param("last_name") String last_name,
                         @Param("email") String email,

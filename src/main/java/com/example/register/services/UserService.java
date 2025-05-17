@@ -19,7 +19,7 @@ public class UserService {
     }
 
     public int signup(String username, String fName, String lName, String email, String password, String checkpref) {
-        return userRepository.registerNewUser(username, fName, lName, email, password, checkpref);
+        return userRepository.newUser(username, fName, lName, email, password, checkpref);
     }
 
     public User changePref(String username, List<String> checkPrefList) {
